@@ -1,0 +1,26 @@
+.doors {
+	display: inline-block;
+}
+.door {
+	width: 200px;
+	height: 360px;
+	display: inline-block;
+	background: #e79e6d;
+	border: 2px solid #333;
+	transition: transform 2s;
+}
+.door-left {
+	transform-origin: 0 50%;
+	/* Точка трансформации слева */
+}
+.door-right {
+	transform-origin: 100% 50%;
+	/* Точка трансформации справа */
+}
+.doors:hover .door-left {
+	/* Добавляем перспективу и поворот */
+	transform: perspective(400px) rotateY(40deg);
+}
+.doors:hover .door-right {
+	transform: perspective(400px) rotateY(-40deg);
+}

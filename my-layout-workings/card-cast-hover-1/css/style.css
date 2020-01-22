@@ -1,0 +1,151 @@
+body {
+ margin: 0;
+ padding: 0;
+ font-family: Verdana, Geneva, sans-serif;
+}
+
+.dws-wrapper {
+ margin-top: 280px;
+}
+.flex-container {
+ display: flex;
+ justify-content: center;
+ flex-wrap: wrap;
+}
+.imageBox {
+ overflow: hidden;
+ height: 270px;
+ -webkit-border-radius: 4px;
+ -moz-border-radius: 4px;
+ border-radius: 4px;
+ position: relative;
+ margin: 5px;
+}
+
+.imageBox img {
+ min-width: 100%;
+ height: 100%;
+ -webkit-transition: .5s;
+ -moz-transition: .5s;
+ -ms-transition: .5s;
+ -o-transition: .5s;
+ transition: .5s;
+}
+.imageBox:hover img {
+ -webkit-transform: scale(1.2) rotate(-10deg);
+ -moz-transform: scale(1.2) rotate(-10deg);
+ -ms-transform: scale(1.2) rotate(-10deg);
+ -o-transform: scale(1.2) rotate(-10deg);
+ transform: scale(1.2) rotate(-10deg);
+ filter: grayscale(.75);
+}
+.imageBox h3,
+.imageBox p {
+ position: absolute;
+ -webkit-transition: .8s;
+ -moz-transition: .8s;
+ -ms-transition: .8s;
+ -o-transition: .8s;
+ transition: .8s;
+ color: #ffffff;
+ background-color: rgba(0, 0, 0, 0.45);
+ padding: 5px 15px;
+ margin: 0;
+ border-left: 2px solid #c4c4c4;
+ -webkit-transform: translateX(-100%);
+ -moz-transform: translateX(-100%);
+ -ms-transform: translateX(-100%);
+ -o-transform: translateX(-100%);
+ transform: translateX(-100%);
+}
+.imageBox h3 {
+ top: 45%;
+ font-size: 1.1rem;
+}
+.imageBox p {
+ top: 58%;
+ font-size: 0.9rem;
+}
+.imageBox:hover h3,
+.imageBox:hover p {
+ -webkit-transform: translateX(0);
+ -moz-transform: translateX(0);
+ -ms-transform: translateX(0);
+ -o-transform: translateX(0);
+ transform: translateX(0);
+ margin-left: 10px;
+}
+.imageBox ul {
+ padding: 0;
+ margin: 0;
+ display: flex;
+ background: rgba(0,0,0, 0.2);
+ -webkit-transition: 0.5s;
+ -moz-transition: 0.5s;
+ -ms-transition: 0.5s;
+ -o-transition: 0.5s;
+ transition: 0.5s;
+}
+.imageBox ul li {
+ list-style: none;
+ width: 20%;
+ text-align: center;
+}
+.imageBox ul li a {
+ color: #ffffff;
+ display: block;
+ padding: 10px;
+}
+.imageBox ul li:hover:nth-child(1) {
+ background: #3d5999;
+}
+.imageBox ul li:hover:nth-child(2) {
+ background: #55acee;
+}
+.imageBox ul li:hover:nth-child(3) {
+ background: #dd4d39;
+}
+.imageBox ul li:hover:nth-child(4) {
+ background: #0077B5;
+}
+.imageBox ul li:hover:nth-child(5) {
+ background: #8a3ab9;
+}
+.imageBox:hover ul {
+ -webkit-transform: translateY(-135%);
+ -moz-transform: translateY(-135%);
+ -ms-transform: translateY(-135%);
+ -o-transform: translateY(-135%);
+ transform: translateY(-135%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

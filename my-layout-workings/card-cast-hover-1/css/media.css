@@ -1,0 +1,59 @@
+.dws-wrapper {
+ margin-top: 130px;
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+ .dws-wrapper {
+  margin-top: 20px;
+ }
+ .imageBox {
+  height: 370px;
+ }
+ .imageBox h3 {
+  font-size: 1.4rem;
+  top: 47%;
+ }
+ .imageBox p {
+  font-size: 1rem;
+ }
+ .imageBox ul li a {
+  font-size: 22px;
+ }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 320px) {
+ .imageBox {
+  height: 270px;
+ }
+ .imageBox h3 {
+  font-size: 1.1rem;
+  top: 45%;
+ }
+ .imageBox p {
+  font-size: 0.9rem;
+ }
+ .imageBox ul li a {
+  font-size: 16px;
+ }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,158 @@
+.nav-opener {
+    display: none;
+}
+
+.main-nav {
+    background-color: #263238;
+    padding: 10px 0;
+}
+
+#nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+.nav-drop {
+    max-width: 1200px;
+    padding: 0 15px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#nav li {
+    margin: 0 15px;
+    font-size: 14px;
+    font-weight: 500;
+    list-style: none;
+}
+
+#nav li a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+}
+
+#nav li a:hover {
+    color: #b3b3b3;
+}
+
+
+@media (max-width:768px) {
+    .nav-opener {
+        display: block;
+        margin-left: auto;
+        margin-right: 16px;
+    }
+
+
+    .nav-drop {
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 999;
+        color: #fff;
+        background: #263238;
+    }
+
+    #nav li {
+        margin: 0 15px 20px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    #nav li a {
+        display: block;
+        color: #fff
+    }
+
+    #nav li a:hover {
+        color: #b3b3b3
+    }
+
+    .nav-active .nav-opener span,
+    .nav-active .nav-opener:after,
+    .nav-active .nav-opener:before {
+        background: #fff
+    }
+
+    .nav-opener {
+        width: 35px;
+        height: 35px;
+        position: relative;
+        z-index: 9999;
+        display: block;
+    }
+
+    .nav-opener span,
+    .nav-opener:after,
+    .nav-opener:before {
+        background: #263238;
+        position: absolute;
+        top: 18px;
+        left: 0;
+        right: 0;
+        height: 5px;
+        transition: all .2s linear;
+        background: #fff;
+
+    }
+
+    .nav-opener:after,
+    .nav-opener:before {
+        content: '';
+        top: 7px
+    }
+
+    .nav-opener:after {
+        top: 29px
+    }
+
+    .nav-active .nav-opener:after,
+    .nav-active .nav-opener:before {
+        transform: rotate(45deg);
+        top: 50%;
+        left: 5px;
+        right: 5px
+    }
+
+    .nav-active .nav-opener:after {
+        transform: rotate(-45deg)
+    }
+
+    .nav-active .nav-opener span {
+        opacity: 0
+    }
+
+    .nav-active {
+        overflow: hidden
+    }
+
+    .nav-drop {
+        transition: opacity .3s ease-in-out, visibility .3s ease-in-out
+    }
+
+    .nav-active .nav-drop {
+        opacity: 1;
+        visibility: visible
+    }
+
+    .resize-active .nav-drop {
+        transition: none !important
+    }
+
+    #nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%
+    }
+
+}
