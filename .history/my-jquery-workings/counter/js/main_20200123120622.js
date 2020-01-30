@@ -26,13 +26,12 @@
 		}, {
 			duration: 5000,
 			step: function (func) {
-				// console.log(func);
 				if(index == 0 ) {
 					var pointNumb = $(this).text(parseFloat(func).toFixed(size));
 				}
 
 				if(index != 0) {
-					var pointNumb = $(this).text(parseFloat(func).toFixed(size).replace('.', '   '));
+					var pointNumb = $(this).text(parseFloat(func).toFixed(size).replace('.', ','));
 				}
 				 
 			}

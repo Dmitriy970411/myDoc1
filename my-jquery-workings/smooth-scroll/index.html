@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+    *, :after, :before {
+    box-sizing: border-box;
+}
+
+/*оставляет только один скролл*/
+body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+/*оставляет только один скролл*/
+
+/*наш window */
+.viewport {
+    overflow: hidden;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+/*наш window */
+
+
+
+/* имеет высоту документа */
+
+.scroll-container {
+    position: absolute;
+    overflow: hidden;
+    z-index: 10;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    width: 100%;
+}
+
+/* имеет высоту документа */
+
+.content {
+  width: 60%; 
+  padding-top:50px;
+}
+
+.img-container {
+  margin: 0 0 50px;
+  }
+  .img-container img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+
+    
+    </style>
+</head>
+<body>
+    <section class="viewport">
+    
+  <div id="scroll-container" class="scroll-container">
+    <div class="content">
+  
+      <div class="img-container">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/106114/splash-10.jpg" alt="">
+      </div>       
+      <div class="img-container">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/106114/splash-14.jpg" alt="">
+      </div>  
+      <div class="img-container">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/106114/splash-15.jpg" alt="">
+      </div>  
+      <div class="img-container">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/106114/splash-16.jpg" alt="">
+      </div>      
+    </div>
+  </div>
+   
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+    <script>
+          var html = document.documentElement;
+    var body = document.body;
+
+    var scroller = {
+        target: document.querySelector("#scroll-container"),  // основной елемент
+        ease: 0.05, // <= scroll speed
+        endY: 0, // меняется  высота документа
+        y: 0, // меняется  высота документа
+        resizeRequest: 1, // запрос на size ?
+        scrollRequest: 0, // запрос на scroll ?
+    };
+
+    var requestId = null; // запрос на ID ?
+
+    TweenLite.set(scroller.target, {
+        rotation: 0.01,
+        force3D: true
+    }); // установка трансформации
+
+    window.addEventListener("load", onLoad); // функция запускается при загрузки елементов
+
+    function onLoad() {
+        updateScroller();  // вычисления и установка высоты документа
+        window.focus(); // Метод window.focus позволяет сфокусироваться на окне
+        window.addEventListener("resize", onResize); // обновляет высоту документа
+        document.addEventListener("scroll", onScroll); // обновляет высоту документа
+    }
+
+    function updateScroller() {  // вычисления и установка высоты документа
+
+        var resized = scroller.resizeRequest > 0;  // запрос на размер
+
+        if (resized) {
+            var height = scroller.target.clientHeight;
+            body.style.height = height + "px";
+            scroller.resizeRequest = 0;
+            console.log(height) // вычисления и установка высоты документа
+        }
+
+        var scrollY = window.pageYOffset || html.scrollTop || body.scrollTop || 0; // высота документа заносится в переменную
+
+        scroller.endY = scrollY; // переназначения свойства  высота документа
+        scroller.y += (scrollY - scroller.y) * scroller.ease; // на сколько пикселей будет скролится документ
+
+        if (Math.abs(scrollY - scroller.y) < 0.05 || resized) { // возвращает абсолютное значение числа  0 ; + ∞
+            scroller.y = scrollY;  // на сколько пикселей будет скролится документ
+            scroller.scrollRequest = 0; // переназначения свойства c 1 на 0
+        }
+
+        //ОСновная действующая функция
+
+        TweenLite.set(scroller.target, {
+            y: -scroller.y // на сколько пикселей будет скролится документ
+        });
+
+        //ОСновная действующая функция
+
+        requestId = scroller.scrollRequest > 0 ? requestAnimationFrame(updateScroller) : null;
+    }
+
+    function onScroll() {
+        scroller.scrollRequest++;
+        if (!requestId) {
+            requestId = requestAnimationFrame(updateScroller);
+        }
+    }
+
+    function onResize() {
+        scroller.resizeRequest++;
+        if (!requestId) {
+            requestId = requestAnimationFrame(updateScroller);
+        }
+    }
+    //----scroll
+
+    </script>
+</body>
+</html>
