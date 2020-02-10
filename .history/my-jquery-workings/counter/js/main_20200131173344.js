@@ -28,7 +28,7 @@
 			step: function (func) {
 				// console.log(func);
 				// if(index == 0 ) {
-					var pointNumb = $(this).text(parseFloat(func));
+					var pointNumb = $(this).text(parseFloat(func).toFixed(size));
 				// }
 
 				// if(index != 0) {
